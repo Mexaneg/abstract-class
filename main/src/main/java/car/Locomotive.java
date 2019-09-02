@@ -8,9 +8,11 @@ public class Locomotive extends AbstractCar {
     private int speed;
     private ExternalCombustionEngine engine;
 
-    public Locomotive(int coalVolume, int waterVolume, ExternalCombustionEngine engine) {
+    public Locomotive(String producer, String model, int maxSpeed, String transmission, String bodyType, String color, int coalVolume, int waterVolume, int speed, ExternalCombustionEngine engine) {
+        super(producer, model, maxSpeed, transmission, bodyType, color);
         this.coalVolume = coalVolume;
         this.waterVolume = waterVolume;
+        this.speed = speed;
         this.engine = engine;
     }
 
@@ -26,11 +28,12 @@ public class Locomotive extends AbstractCar {
 
     @Override
     public void refuel(int volume) {
-        coalVolume+=volume;
+        coalVolume += volume;
 
     }
-    public void addWater(int volume){
-        waterVolume+=volume;
+
+    public void addWater(int volume) {
+        waterVolume += volume;
     }
 
     @Override
@@ -50,6 +53,6 @@ public class Locomotive extends AbstractCar {
 
     @Override
     public void setSpeed(int speed) {
-        this.speed=speed;
+        this.speed = speed;
     }
 }

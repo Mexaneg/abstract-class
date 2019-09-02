@@ -4,8 +4,8 @@ import java.util.*;
 
 public class ExternalCombustionEngine extends AbstractEngine {
 
-    public ExternalCombustionEngine(int power, String model, String controlSystem, ArrayList<String> errors, String state, float fuelConsumption) {
-        super(power, model, controlSystem, errors, state, fuelConsumption);
+    public ExternalCombustionEngine(int power, int cylinderAmount, String controlSystem, ArrayList<String> errors, String state, float fuelConsumption) {
+        super(power, cylinderAmount, controlSystem, errors, state, fuelConsumption);
     }
 
     @Override
