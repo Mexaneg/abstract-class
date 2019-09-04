@@ -10,8 +10,6 @@ public abstract class AbstractEngine implements Engine {
     private String state;
     private float fuelConsumption;
 
-    public abstract String generateError();
-
     public AbstractEngine(int power, int cylinderAmount, String controlSystem, ArrayList<String> errors, String state, float fuelConsumption) {
         this.power = power;
         this.cylinderAmount = cylinderAmount;
@@ -25,9 +23,13 @@ public abstract class AbstractEngine implements Engine {
 
     public abstract void stop();
 
-    public abstract ArrayList<String> getErrors();
+    public ArrayList<String> getErrors() {
+        return errors;
+    }
 
-    public abstract void cleanErrors();
+    public void cleanErrors() {
+        errors.clear();
+    }
 
     public float calculatePrice() {
         int basePrice = 10;

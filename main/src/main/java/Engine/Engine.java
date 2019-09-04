@@ -6,11 +6,13 @@ public interface Engine {
 
     void run();
 
-    void stop();
+    void stop() throws InterruptedException;
 
     ArrayList<String> getErrors();
 
     void cleanErrors();
+
+    float calculatePrice();
 
 
 }

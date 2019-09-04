@@ -7,6 +7,7 @@ import java.util.*;
 public abstract class AbstractCar implements Vehicle {
     private String producer;
     private String model;
+    private int speed;
     private int maxSpeed;
     private String transmission;
     private String bodyType;
@@ -20,7 +21,6 @@ public abstract class AbstractCar implements Vehicle {
         this.bodyType = bodyType;
         this.color = color;
     }
-
 
     public abstract void openHood();
 
@@ -171,4 +171,16 @@ public abstract class AbstractCar implements Vehicle {
     public int hashCode() {
         return Objects.hash(producer, model, maxSpeed, bodyType, color);
     }
+
+    @Override
+    public int getSpeed() {
+        return speed;
+    }
+
+    @Override
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
 }
+
+

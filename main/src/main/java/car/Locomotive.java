@@ -6,9 +6,9 @@ public class Locomotive extends AbstractCar {
     private int coalVolume;
     private int waterVolume;
     private int speed;
-    private ExternalCombustionEngine engine;
+    private Engine engine;
 
-    public Locomotive(String producer, String model, int maxSpeed, String transmission, String bodyType, String color, int coalVolume, int waterVolume, int speed, ExternalCombustionEngine engine) {
+    public Locomotive(String producer, String model, int maxSpeed, String transmission, String bodyType, String color, int coalVolume, int waterVolume, int speed, Engine engine) {
         super(producer, model, maxSpeed, transmission, bodyType, color);
         this.coalVolume = coalVolume;
         this.waterVolume = waterVolume;

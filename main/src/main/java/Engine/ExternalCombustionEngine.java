@@ -8,28 +8,24 @@ public class ExternalCombustionEngine extends AbstractEngine {
         super(power, cylinderAmount, controlSystem, errors, state, fuelConsumption);
     }
 
-    @Override
-    public String generateError() {
-        return null;
-    }
 
     @Override
     public void run() {
-
+        System.out.println("Расзжигаем топку");
+        System.out.println("Ждем нагрева воды...");
+        System.out.println("Ждем нагрева воды..");
+        System.out.println("Ждем нагрева воды.");
+        System.out.println("Вода нагрета, давление пара достаточное");
+        System.out.println("Двигатель готов к запуску");
     }
 
     @Override
     public void stop() {
-
+        System.out.println("Гасим топку");
+        System.out.println("Ждем остывания воды...");
+        System.out.println("Ждем остывания воды..");
+        System.out.println("Ждем остывания воды.");
+        System.out.println("Котел остыл, двигатель заглушен");
     }
 
-    @Override
-    public ArrayList<String> getErrors() {
-        return null;
-    }
-
-    @Override
-    public void cleanErrors() {
-
-    }
 }
