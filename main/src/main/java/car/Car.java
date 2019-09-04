@@ -28,7 +28,18 @@ public class Car extends AbstractCar {
             interiorBasePrise = 500;
         }
 
-        return super.calculatePrice();
+        int numberSeatsBasePrice;
+        if (numberSeats <= 5) {
+            numberSeatsBasePrice = 0;
+        } else {
+            numberSeatsBasePrice = 500;
+        }
+
+        int optionsBasePrice = 400;
+        int numberOptions = this.additionOptions.size();
+        float price;
+        price = super.calculatePrice() + interiorBasePrise + numberSeatsBasePrice + optionsBasePrice * numberOptions;
+        return price;
     }
 
     public String getInterior() {
@@ -82,7 +93,7 @@ public class Car extends AbstractCar {
 
     @Override
     public void refuel(int volume) {
-        fuelVolume += volume;
+        this.fuelVolume += volume;
         System.out.println("Топливо дозаправлено!");
     }
 
