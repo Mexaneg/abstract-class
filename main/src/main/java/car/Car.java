@@ -7,7 +7,6 @@ public class Car extends AbstractCar {
     private int numberSeats;
     private ArrayList<String> additionOptions;
     private int fuelVolume;
-    private int speed;
 
     public Car(String producer, String model, int maxSpeed, String transmission, String bodyType, String color) {
         super(producer, model, maxSpeed, transmission, bodyType, color);
@@ -16,13 +15,13 @@ public class Car extends AbstractCar {
     @Override
     public float calculatePrice() {
         int interiorBasePrise;
-        if (interior == "default") {
+        if (interior.contains("default")) {
             interiorBasePrise = 0;
         }
-        if (interior == "велюр") {
+        if (interior.contains("велюр")) {
             interiorBasePrise = 1000;
         }
-        if (interior == "кожа") {
+        if (interior.contains("кожа")) {
             interiorBasePrise = 2000;
         } else {
             interiorBasePrise = 500;
@@ -107,14 +106,4 @@ public class Car extends AbstractCar {
         System.out.println("Тормози!!!");
     }
 
-    @Override
-    public int getSpeed() {
-        return speed;
-    }
-
-    @Override
-    public void setSpeed(int speed) {
-        this.speed = speed;
-
-    }
 }

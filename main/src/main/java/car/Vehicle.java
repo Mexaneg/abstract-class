@@ -10,4 +10,6 @@ public interface Vehicle {
 
       void setSpeed(int speed);
 
+      float calculatePrice();
+
 }
