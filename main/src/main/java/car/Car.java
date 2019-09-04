@@ -43,6 +43,7 @@ public class Car extends AbstractCar {
         return price;
     }
 
+
     public String getInterior() {
         return interior;
     }

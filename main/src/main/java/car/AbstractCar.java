@@ -189,6 +189,15 @@ public abstract class AbstractCar implements Vehicle {
     public void setSpeed(int speed) {
         this.speed = speed;
     }
+
+    @Override
+    public Engine getEngine() {
+        return engine;
+    }
+
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
 }
 
 

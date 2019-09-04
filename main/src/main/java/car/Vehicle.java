@@ -1,5 +1,7 @@
 package car;
 
+import engine.*;
+
 public interface Vehicle {
 
     void accelerate();
@@ -11,5 +13,7 @@ public interface Vehicle {
     void setSpeed(int speed);
 
     float calculatePrice();
+
+    Engine getEngine();
 
 }
