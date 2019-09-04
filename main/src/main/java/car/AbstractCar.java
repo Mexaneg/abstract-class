@@ -61,26 +61,26 @@ public abstract class AbstractCar implements Vehicle {
         if (this.transmission == "AT") {
             transmissionBasePrice = 1000;
         }
-        if (this.producer == "AMT") {
+        if (this.transmission == "AMT") {
             transmissionBasePrice = 2000;
         }
-        if (this.producer == "AT") {
+        if (this.transmission == "AT") {
             transmissionBasePrice = 3000;
         } else {
             producerBasePrice = 1500;
         }
 
         //body type price factors
-        if (this.model == "sedan") {
+        if (this.bodyType == "sedan") {
             bodyTypePriceFactor = (float) 1.2;
         }
-        if (this.producer == "hatchback") {
+        if (this.bodyType == "hatchback") {
             bodyTypePriceFactor = (float) 1.1;
         }
-        if (this.producer == "coupe") {
+        if (this.bodyType == "coupe") {
             bodyTypePriceFactor = (float) 1.5;
         }
-        if (this.producer == "suv") {
+        if (this.bodyType == "suv") {
             bodyTypePriceFactor = (float) 2.5;
         } else {
             bodyTypePriceFactor = (float) 1;
@@ -96,7 +96,7 @@ public abstract class AbstractCar implements Vehicle {
             colorPriceFactor = (float) 1;
         }
 
-        price = producerBasePrice * bodyTypePriceFactor * colorPriceFactor + transmissionBasePrice+engine.calculatePrice();
+        price = producerBasePrice * bodyTypePriceFactor * colorPriceFactor + transmissionBasePrice + engine.calculatePrice();
 
         return price;
     }
@@ -177,7 +177,7 @@ public abstract class AbstractCar implements Vehicle {
 
     @Override
     public int hashCode() {
-        return Objects.hash(producer, model, maxSpeed, bodyType, color);
+        return Objects.hash(producer, model, speed, maxSpeed, bodyType, color);
     }
 
     @Override
