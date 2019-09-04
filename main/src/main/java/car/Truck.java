@@ -3,13 +3,12 @@ package car;
 import engine.*;
 
 public class Truck extends AbstractCar {
-    private int speed;
     private int fuelVolume;
     private Engine engine;
     private int carryingCapacity;
 
-    public Truck(String producer, String model, int maxSpeed, String transmission, String bodyType, String color) {
-        super(producer, model, maxSpeed, transmission, bodyType, color);
+    public Truck(String producer, String model, int speed, int maxSpeed, String transmission, String bodyType, String color, Engine engine) {
+        super(producer, model, speed, maxSpeed, transmission, bodyType, color, engine);
     }
 
     @Override

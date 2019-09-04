@@ -1,5 +1,7 @@
 package car;
 
+import engine.*;
+
 import java.util.*;
 
 public class Car extends AbstractCar {
@@ -8,8 +10,8 @@ public class Car extends AbstractCar {
     private ArrayList<String> additionOptions;
     private int fuelVolume;
 
-    public Car(String producer, String model, int maxSpeed, String transmission, String bodyType, String color) {
-        super(producer, model, maxSpeed, transmission, bodyType, color);
+    public Car(String producer, String model, int speed, int maxSpeed, String transmission, String bodyType, String color, Engine engine) {
+        super(producer, model, speed, maxSpeed, transmission, bodyType, color, engine);
     }
 
     @Override

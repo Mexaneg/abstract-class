@@ -2,14 +2,14 @@ package car;
 
 public interface Vehicle {
 
-      void accelerate();
+    void accelerate();
 
-      void brake();
+    void brake();
 
-      int getSpeed();
+    int getSpeed();
 
-      void setSpeed(int speed);
+    void setSpeed(int speed);
 
-      float calculatePrice();
+    float calculatePrice();
 
 }

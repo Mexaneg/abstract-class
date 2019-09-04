@@ -1,5 +1,7 @@
 package car;
 
+import engine.*;
+
 import java.util.*;
 
 public abstract class AbstractCar implements Vehicle {
@@ -10,14 +12,17 @@ public abstract class AbstractCar implements Vehicle {
     private String transmission;
     private String bodyType;
     private String color;
+    private Engine engine;
 
-    public AbstractCar(String producer, String model, int maxSpeed, String transmission, String bodyType, String color) {
+    public AbstractCar(String producer, String model, int speed, int maxSpeed, String transmission, String bodyType, String color, Engine engine) {
         this.producer = producer;
         this.model = model;
+        this.speed = speed;
         this.maxSpeed = maxSpeed;
         this.transmission = transmission;
         this.bodyType = bodyType;
         this.color = color;
+        this.engine = engine;
     }
 
     public abstract void openHood();
@@ -25,6 +30,10 @@ public abstract class AbstractCar implements Vehicle {
     public abstract void closeHood();
 
     public abstract void refuel(int volume);
+
+    public abstract void accelerate();
+
+    public abstract void brake();
 
     public float calculatePrice() {
         int producerBasePrice = 0;
