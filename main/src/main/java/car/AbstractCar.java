@@ -96,7 +96,7 @@ public abstract class AbstractCar implements Vehicle {
             colorPriceFactor = (float) 1;
         }
 
-        price = producerBasePrice * bodyTypePriceFactor * colorPriceFactor + transmissionBasePrice;
+        price = producerBasePrice * bodyTypePriceFactor * colorPriceFactor + transmissionBasePrice+engine.calculatePrice();
 
         return price;
     }
@@ -155,6 +155,7 @@ public abstract class AbstractCar implements Vehicle {
         return "AbstractCar{" +
                 "producer='" + producer + '\'' +
                 ", model='" + model + '\'' +
+                ", speed='" + speed + '\'' +
                 ", maxSpeed=" + maxSpeed +
                 ", transmission='" + transmission + '\'' +
                 ", bodyType='" + bodyType + '\'' +
