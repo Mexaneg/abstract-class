@@ -1,6 +1,6 @@
 package car;
 
-import Engine.*;
+import engine.*;
 
 public class Truck extends AbstractCar {
     private int speed;
