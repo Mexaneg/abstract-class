@@ -4,8 +4,8 @@ import java.util.*;
 
 public class Caterpillar extends AbstractEngine {
 
-    public Caterpillar(int power, int cylinderAmount, String controlSystem, ArrayList<String> errors, String state, float fuelConsumption) {
-        super(power, cylinderAmount, controlSystem, errors, state, fuelConsumption);
+    public Caterpillar(int power, int cylinderAmount, String controlSystem, String state, float fuelConsumption) {
+        super(power, cylinderAmount, controlSystem, state, fuelConsumption);
     }
 
 

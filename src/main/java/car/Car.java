@@ -20,10 +20,10 @@ public class Car extends AbstractCar {
         if (interior.contains("default")) {
             interiorBasePrise = 0;
         }
-        if (interior.contains("велюр")) {
+        if (interior.contains("velours")) {
             interiorBasePrise = 1000;
         }
-        if (interior.contains("кожа")) {
+        if (interior.contains("leather")) {
             interiorBasePrise = 2000;
         } else {
             interiorBasePrise = 500;

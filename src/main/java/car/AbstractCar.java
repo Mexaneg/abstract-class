@@ -36,61 +36,53 @@ public abstract class AbstractCar implements Vehicle {
     public abstract void brake();
 
     public float calculatePrice() {
-        int producerBasePrice = 0;
-        int transmissionBasePrice = 0;
+        float producerBasePrice = 0;
+        float transmissionBasePrice = 0;
         float bodyTypePriceFactor = 0;
         float colorPriceFactor = 0;
         float price = 0;
         //producer base price variants
-        if (this.producer == "BMW") {
+        if (this.producer.equals("BMW")) {
             producerBasePrice = 20000;
-        }
-        if (this.producer == "Mercedes") {
+
+        } else if (this.producer.equals("Mercedes")) {
             producerBasePrice = 30000;
-        }
-        if (this.producer == "Toyota") {
+        } else if (this.producer.equals("Toyota")) {
             producerBasePrice = 10000;
-        }
-        if (this.producer == "Lada") {
+        } else if (this.producer.equals("Lada")) {
             producerBasePrice = 2000;
         } else {
             producerBasePrice = 5000;
         }
 
         //transmission base price
-        if (this.transmission == "AT") {
+        if (this.transmission.equals("MT")) {
             transmissionBasePrice = 1000;
-        }
-        if (this.transmission == "AMT") {
+        } else if (this.transmission.equals("AMT")) {
             transmissionBasePrice = 2000;
-        }
-        if (this.transmission == "AT") {
+        } else if (this.transmission.equals("AT")) {
             transmissionBasePrice = 3000;
         } else {
             producerBasePrice = 1500;
         }
 
         //body type price factors
-        if (this.bodyType == "sedan") {
+        if (this.bodyType.equals("sedan")) {
             bodyTypePriceFactor = (float) 1.2;
-        }
-        if (this.bodyType == "hatchback") {
+        } else if (this.bodyType.equals("hatchback")) {
             bodyTypePriceFactor = (float) 1.1;
-        }
-        if (this.bodyType == "coupe") {
+        } else if (this.bodyType.equals("coupe")) {
             bodyTypePriceFactor = (float) 1.5;
-        }
-        if (this.bodyType == "suv") {
+        } else if (this.bodyType.equals("suv")) {
             bodyTypePriceFactor = (float) 2.5;
         } else {
             bodyTypePriceFactor = (float) 1;
         }
 
         //color price factor
-        if (this.color == "red") {
+        if (this.color.equals("red")) {
             colorPriceFactor = (float) 1.1;
-        }
-        if (this.color == "black") {
+        } else if (this.color.equals("black")) {
             colorPriceFactor = (float) 1.05;
         } else {
             colorPriceFactor = (float) 1;

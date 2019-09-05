@@ -9,8 +9,7 @@ public class CarBuilder {
     private Car newCar;
 
     public CarBuilder() {
-        ArrayList<String> errors = new ArrayList();
-        Caterpillar cat = new Caterpillar(100, 4, "MPI", errors, "off", 10.0f);
+        Caterpillar cat = new Caterpillar(100, 4, "MPI", "off", 10.0f);
         newCar = new Car("default", "default", 0, 100, "default", "default", "default", cat);
         newCar.setInterior("default");
         newCar.setNumberSeats(5);
