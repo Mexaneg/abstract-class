@@ -1,26 +1,29 @@
 package car;
 
-import Engine.*;
+import engine.*;
 
 import java.util.*;
 
 public abstract class AbstractCar implements Vehicle {
     private String producer;
     private String model;
+    private int speed;
     private int maxSpeed;
     private String transmission;
     private String bodyType;
     private String color;
+    private Engine engine;
 
-    public AbstractCar(String producer, String model, int maxSpeed, String transmission, String bodyType, String color) {
+    public AbstractCar(String producer, String model, int speed, int maxSpeed, String transmission, String bodyType, String color, Engine engine) {
         this.producer = producer;
         this.model = model;
+        this.speed = speed;
         this.maxSpeed = maxSpeed;
         this.transmission = transmission;
         this.bodyType = bodyType;
         this.color = color;
+        this.engine = engine;
     }
-
 
     public abstract void openHood();
 
@@ -28,68 +31,64 @@ public abstract class AbstractCar implements Vehicle {
 
     public abstract void refuel(int volume);
 
+    public abstract void accelerate();
+
+    public abstract void brake();
+
     public float calculatePrice() {
-        int producerBasePrice = 0;
-        int transmissionBasePrice = 0;
+        float producerBasePrice = 0;
+        float transmissionBasePrice = 0;
         float bodyTypePriceFactor = 0;
         float colorPriceFactor = 0;
         float price = 0;
         //producer base price variants
-        if (this.producer == "BMW") {
+        if (this.producer.equals("BMW")) {
             producerBasePrice = 20000;
-        }
-        if (this.producer == "Mercedes") {
+
+        } else if (this.producer.equals("Mercedes")) {
             producerBasePrice = 30000;
-        }
-        if (this.producer == "Toyota") {
+        } else if (this.producer.equals("Toyota")) {
             producerBasePrice = 10000;
-        }
-        if (this.producer == "Lada") {
+        } else if (this.producer.equals("Lada")) {
             producerBasePrice = 2000;
         } else {
             producerBasePrice = 5000;
         }
 
         //transmission base price
-        if (this.transmission == "AT") {
+        if (this.transmission.equals("MT")) {
             transmissionBasePrice = 1000;
-        }
-        if (this.producer == "AMT") {
+        } else if (this.transmission.equals("AMT")) {
             transmissionBasePrice = 2000;
-        }
-        if (this.producer == "AT") {
+        } else if (this.transmission.equals("AT")) {
             transmissionBasePrice = 3000;
         } else {
             producerBasePrice = 1500;
         }
 
         //body type price factors
-        if (this.model == "sedan") {
+        if (this.bodyType.equals("sedan")) {
             bodyTypePriceFactor = (float) 1.2;
-        }
-        if (this.producer == "hatchback") {
+        } else if (this.bodyType.equals("hatchback")) {
             bodyTypePriceFactor = (float) 1.1;
-        }
-        if (this.producer == "coupe") {
+        } else if (this.bodyType.equals("coupe")) {
             bodyTypePriceFactor = (float) 1.5;
-        }
-        if (this.producer == "suv") {
+        } else if (this.bodyType.equals("suv")) {
             bodyTypePriceFactor = (float) 2.5;
         } else {
             bodyTypePriceFactor = (float) 1;
         }
 
         //color price factor
-        if (this.color == "red") {
+        if (this.color.equals("red")) {
             colorPriceFactor = (float) 1.1;
-        }
-        if (this.color == "black") {
+        } else if (this.color.equals("black")) {
             colorPriceFactor = (float) 1.05;
         } else {
             colorPriceFactor = (float) 1;
         }
 
-        price = producerBasePrice * bodyTypePriceFactor * colorPriceFactor + transmissionBasePrice;
+        price = producerBasePrice * bodyTypePriceFactor * colorPriceFactor + transmissionBasePrice + engine.calculatePrice();
 
         return price;
     }
@@ -148,6 +147,7 @@ public abstract class AbstractCar implements Vehicle {
         return "AbstractCar{" +
                 "producer='" + producer + '\'' +
                 ", model='" + model + '\'' +
+                ", speed='" + speed + '\'' +
                 ", maxSpeed=" + maxSpeed +
                 ", transmission='" + transmission + '\'' +
                 ", bodyType='" + bodyType + '\'' +
@@ -169,6 +169,27 @@ public abstract class AbstractCar implements Vehicle {
 
     @Override
     public int hashCode() {
-        return Objects.hash(producer, model, maxSpeed, bodyType, color);
+        return Objects.hash(producer, model, speed, maxSpeed, bodyType, color);
+    }
+
+    @Override
+    public int getSpeed() {
+        return speed;
+    }
+
+    @Override
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    @Override
+    public Engine getEngine() {
+        return engine;
+    }
+
+    public void setEngine(Engine engine) {
+        this.engine = engine;
     }
 }
+
+

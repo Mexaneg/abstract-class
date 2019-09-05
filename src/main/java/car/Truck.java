@@ -1,22 +1,21 @@
 package car;
 
-import Engine.*;
+import engine.*;
 
 public class Truck extends AbstractCar {
-    private int speed;
     private int fuelVolume;
-    private Caterpillar engine;
+    private Engine engine;
     private int carryingCapacity;
 
-    public Truck(String producer, String model, int maxSpeed, String transmission, String bodyType, String color) {
-        super(producer, model, maxSpeed, transmission, bodyType, color);
+    public Truck(String producer, String model, int speed, int maxSpeed, String transmission, String bodyType, String color, Engine engine) {
+        super(producer, model, speed, maxSpeed, transmission, bodyType, color, engine);
     }
 
     @Override
     public float calculatePrice() {
         int carryingCapacityPriceFactor = 10;
         float price = 0;
-        price = this.calculatePrice() + engine.calculatePrice() + carryingCapacityPriceFactor * carryingCapacity;
+        price = super.calculatePrice() + engine.calculatePrice() + carryingCapacityPriceFactor * carryingCapacity;
         return price;
     }
 
@@ -28,11 +27,11 @@ public class Truck extends AbstractCar {
         this.fuelVolume = fuelVolume;
     }
 
-    public Caterpillar getEngine() {
+    public Engine getEngine() {
         return engine;
     }
 
-    public void setEngine(Caterpillar engine) {
+    public void setEngine(Engine engine) {
         this.engine = engine;
     }
 
@@ -68,14 +67,5 @@ public class Truck extends AbstractCar {
     public void brake() {
         System.out.println("Грузовик тормозит");
     }
-
-    @Override
-    public int getSpeed() {
-        return speed;
-    }
-
-    @Override
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
 }
+

@@ -1,4 +1,5 @@
 import car.*;
+import engine.*;
 
 import java.util.*;
 
@@ -11,18 +12,21 @@ public class main {
         System.out.println(car.calculatePrice());
 
          */
+        Caterpillar cat = new Caterpillar(200, 6, "MPI", "off", 30);
         CarBuilder builder = new CarBuilder();
-        Car myCar = builder.color("Красный")
+        Car car = builder.color("black")
                 .add("Стерео система Bose")
                 .add("Webasto")
                 .add("Коврики")
-                .producer("BMW")
-                .model("X5")
+                .producer("Toyota")
+                .model("Prado")
                 .transmission("AT")
-                .interior("Кожа Nappa")
+                .interior("leather")
                 .build();
-        System.out.println(myCar.toString());
-
-
+        car.setEngine(cat);
+        car.setNumberSeats(7);
+        car.setBodyType("suv");
+        float expected = car.calculatePrice();
+        System.out.println(expected);
     }
 }

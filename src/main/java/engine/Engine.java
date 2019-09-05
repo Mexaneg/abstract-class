@@ -1,4 +1,4 @@
-package Engine;
+package engine;
 
 import java.util.*;
 
@@ -8,9 +8,7 @@ public interface Engine {
 
     void stop();
 
-    ArrayList<String> getErrors();
-
-    void cleanErrors();
+    float calculatePrice();
 
 
 }
